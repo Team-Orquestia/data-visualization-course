@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import numpy as np
+
 
 # 1. Configuración de la página (siempre al principio)
 st.set_page_config(
@@ -30,6 +30,14 @@ df = pd.DataFrame({
 
 # st.dataframe permite scroll y ordenación
 st.write("Uso de st.dataframe (interactivo):")
+
+# Corrección de compatibilidad para Pandas 3.0+ y Streamlit antiguo
+# Convertimos a objetos Python estándar para evitar el error "LargeUtf8"
+try:
+    df = df.astype(object)
+except:
+    pass
+
 st.dataframe(df)
 
 # st.table es estático (todo el contenido visible)
