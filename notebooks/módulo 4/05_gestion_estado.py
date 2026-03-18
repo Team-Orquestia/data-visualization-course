@@ -1,6 +1,4 @@
 import streamlit as st
-import pandas as pd
-import time
 
 st.title("Gestión de Estado (Session State) y Callbacks")
 st.write("""
@@ -35,7 +33,7 @@ with col2:
 
 
 # 2. Callbacks
-st.divider()
+st.markdown("---")
 st.header("2. Callbacks y on_change")
 
 st.write("Podemos ejecutar funciones específicas cuando un widget cambia su valor, usando `on_change` o `on_click`.")
@@ -64,7 +62,7 @@ if st.session_state.last_message:
 
 
 # 3. Aplicación Práctica: Lista de Tareas (To-Do List)
-st.divider()
+st.markdown("---")
 st.header("3. Ejemplo Práctico: Lista de Tareas")
 
 # Inicializar lista de tareas

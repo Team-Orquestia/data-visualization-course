@@ -47,7 +47,7 @@ if st.button("Procesar Formulario"):
 
 # ----------------------------------------------------------------------------------
 # Ejemplo Práctico: Filtrado de Datos
-st.divider()
+st.markdown("---") # Reemplazo de st.divider() para compatibilidad
 st.header("Ejemplo Práctico: Filtrado de Datos en Tiempo Real")
 
 # Crear datos de empleados ficticios
@@ -84,7 +84,9 @@ df_filtrado = data[
 ]
 
 st.subheader(f"Resultados ({len(df_filtrado)} empleados encontrados)")
+# Convertir a objetos Python antes de estilizar para evitar problemas de compatibilidad
+# con el serializador de Streamlit (Arrow) y Pandas 3.0+
 st.dataframe(
-    df_filtrado.style.format({'Salario': '${:,.2f}'}),
+    df_filtrado.astype(object).style.format({'Salario': '${:,.2f}'}),
     use_container_width=True
 )

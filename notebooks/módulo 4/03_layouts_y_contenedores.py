@@ -1,7 +1,6 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
-import plotly.express as px
 
 st.set_page_config(layout="wide")
 st.title("Layouts Avanzados con Streamlit")
@@ -11,7 +10,7 @@ st.title("Layouts Avanzados con Streamlit")
 with st.sidebar:
     st.header("1. Barra Lateral")
     st.write("Coloca widgets de navegación y configuración aquí.")
-    modo_oscuro = st.toggle("Activar modo oscuro (simulado)")
+    modo_oscuro = st.checkbox("Activar modo oscuro (simulado)")
     
     # 2. Tabs en Sidebar
     tab1_s, tab2_s = st.tabs(["Filtros", "General"])
@@ -21,7 +20,7 @@ with st.sidebar:
         st.write("Versión 1.0.0")
 
 # 3. Columnas Principales
-st.divider()
+st.markdown("---")
 st.header("2. División en Columnas (st.columns)")
 
 col_izq, col_centro, col_der = st.columns([1, 2, 1]) # Proporciones de ancho
@@ -41,7 +40,7 @@ with col_der:
     st.metric(label="Visitas", value="160K", delta="1.2%")
 
 # 4. Pestañas (st.tabs)
-st.divider()
+st.markdown("---")
 st.header("3. Pestañas de Contenido (st.tabs)")
 
 tab1, tab2, tab3 = st.tabs(["📈 Analítica", "📄 Datos", "ℹ️ Información"])
@@ -67,7 +66,7 @@ with tab3:
     """)
 
 # 5. Expander (st.expander)
-st.divider()
+st.markdown("---")
 st.header("4. Contenido Plegable (st.expander)")
 
 with st.expander("Ver código fuente de la configuración"):
@@ -84,7 +83,7 @@ with st.expander("Detalles técnicos avanzados", expanded=False):
     })
 
 # 6. Container (st.container)
-st.divider()
+st.markdown("---")
 st.header("5. Contenedores Dinámicos (st.container)")
 st.write("Útil para insertar elementos fuera de orden o agrupar lógica.")
 

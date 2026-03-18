@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import plotly.express as px
-import plotly.graph_objects as go
 import altair as alt
 
 st.set_page_config(layout="wide")
@@ -42,7 +41,7 @@ map_data = pd.DataFrame(
 st.map(map_data, zoom=10)
 
 # 3. Integración con Plotly (st.plotly_chart)
-st.divider()
+st.markdown("---")
 st.header("3. Gráficos Interactivos Avanzados (Plotly)")
 
 st.info("Para mayor control, interacción y personalización, usa Plotly con st.plotly_chart.")
@@ -57,7 +56,7 @@ fig = px.scatter(
 st.plotly_chart(fig, use_container_width=True) # use_container_width ajusta al ancho de la columna
 
 # 4. Integración con Altair (st.altair_chart)
-st.divider()
+st.markdown("---")
 st.header("4. Gráficos Declarativos (Altair)")
 
 chart = alt.Chart(df).mark_circle().encode(
@@ -67,7 +66,7 @@ chart = alt.Chart(df).mark_circle().encode(
 st.altair_chart(chart, use_container_width=True)
 
 # 5. Dashboard Combinado (Ejemplo Final)
-st.divider()
+st.markdown("---")
 st.header("5. Dashboard de Ejemplo Combinado")
 
 selected_cat = st.multiselect("Filtrar Categoría:", ['X', 'Y', 'Z'], default=['X', 'Y'])
